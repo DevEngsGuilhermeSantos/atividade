@@ -2,40 +2,73 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
- 
-  <script src="script.js" defer></script>
-
-
-  <title>Atividade</title>
+  <title>Lista de Nomes</title>
 </head>
 <body>
 
+  <h2>Lista de Nomes</h2>
+  
+  <ul id="lista"></ul>
 
-  <section>
+  <br>
 
+  <input type="text" id="nomeInput" placeholder="Digite um nome">
 
- 
-    <input type="text" id="add-texto" placeholder="Digite um nome">
+  <br><br>
 
+  <button onclick="adicionarFinal()">Adicionar no final</button>
+  <button onclick="adicionarInicio()">Adicionar no início</button>
+  <button onclick="removerUltimo()">Remover último</button>
+  <button onclick="removerPrimeiro()">Remover primeiro</button>
 
-    <button id="remover-ultimo">Remover último</button>
-    <button id="remover-primeiro">Remover primeiro</button>
-    <button id="add-inicio">Adicionar no início</button>
-    <button id="botao-add">Adicionar</button>
+  <script>
+    // Lista inicial (ATV 1)
+    let nomes = ["Ana", "Carlos", "João", "Maria"];
 
+    const lista = document.getElementById("lista");
 
-    <br><br>
+    function renderizarLista() {
+      lista.innerHTML = ""; // limpa lista
 
+      nomes.forEach(nome => {
+        const li = document.createElement("li");
+        li.textContent = nome;
+        lista.appendChild(li);
+      });
+    }
 
-   
-    <ul id="lista"></ul>
+    // ATV 2
+    function adicionarFinal() {
+      const input = document.getElementById("nomeInput");
+      if (input.value !== "") {
+        nomes.push(input.value);
+        input.value = "";
+        renderizarLista();
+      }
+    }
 
+    function adicionarInicio() {
+      const input = document.getElementById("nomeInput");
+      if (input.value !== "") {
+        nomes.unshift(input.value);
+        input.value = "";
+        renderizarLista();
+      }
+    }
 
-  </section>
+    function removerUltimo() {
+      nomes.pop();
+      renderizarLista();
+    }
 
+    function removerPrimeiro() {
+      nomes.shift();
+      renderizarLista();
+    }
+
+    // inicializa
+    renderizarLista();
+  </script>
 
 </body>
 </html>
