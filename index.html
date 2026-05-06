@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <h2>Lista de Nomes</h2>
+  <h2>atividades</h2>
   
   <ul id="lista"></ul>
 
@@ -22,13 +22,13 @@
   <button onclick="removerPrimeiro()">Remover primeiro</button>
 
   <script>
-    // Lista inicial (ATV 1)
+   
     let nomes = ["Ana", "Carlos", "João", "Maria"];
 
     const lista = document.getElementById("lista");
 
     function renderizarLista() {
-      lista.innerHTML = ""; // limpa lista
+      lista.innerHTML = ""; 
 
       nomes.forEach(nome => {
         const li = document.createElement("li");
@@ -37,7 +37,7 @@
       });
     }
 
-    // ATV 2
+   
     function adicionarFinal() {
       const input = document.getElementById("nomeInput");
       if (input.value !== "") {
