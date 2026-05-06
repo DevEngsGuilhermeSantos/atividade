@@ -1,4 +1,4 @@
-// Lista inicial (ATV 1)
+
 let nomes = ["Ana", "Carlos", "João", "Maria"];
 
 const lista = document.getElementById("lista");
@@ -13,7 +13,7 @@ function renderizarLista() {
   });
 }
 
-// ATV 2
+
 function adicionarFinal() {
   const input = document.getElementById("nomeInput");
   if (input.value !== "") {
@@ -42,5 +42,5 @@ function removerPrimeiro() {
   renderizarLista();
 }
 
-// inicializa
+
 renderizarLista();
