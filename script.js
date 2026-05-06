@@ -1,46 +1,46 @@
-const textarea = document.getElementById("add-texto");
-const botaoadd = document.getElementById("botao-add");
-const btnRemoverUltimo = document.getElementById("remover-ultimo");
-const btnRemoverPrimeiro = document.getElementById("remover-primeiro");
-const btnAddInicio = document.getElementById("add-inicio");
-let lista_nomes = ["kawan", "fabricio", "wesley"];
+// Lista inicial (ATV 1)
+let nomes = ["Ana", "Carlos", "João", "Maria"];
 
+const lista = document.getElementById("lista");
 
+function renderizarLista() {
+  lista.innerHTML = "";
 
+  nomes.forEach(nome => {
+    const li = document.createElement("li");
+    li.textContent = nome;
+    lista.appendChild(li);
+  });
+}
 
-function renderizar() {
-  const lista_pagina = document.getElementById("lista");
-
-
-  lista_pagina.innerHTML = "";
-  for (let item of lista_nomes) {
-    let elemento = document.createElement("li");
-    elemento.innerText = item;
-    lista_pagina.appendChild(elemento);
+// ATV 2
+function adicionarFinal() {
+  const input = document.getElementById("nomeInput");
+  if (input.value !== "") {
+    nomes.push(input.value);
+    input.value = "";
+    renderizarLista();
   }
 }
 
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderizar();
-});
-
-
-
-
-
-
-botaoadd.addEventListener("click", () => {
-  const valor = textarea.value.trim();
-
-
-  if (valor !== "") {
-    lista_nomes.push(valor);
-    textarea.value = "";
-    renderizar();
+function adicionarInicio() {
+  const input = document.getElementById("nomeInput");
+  if (input.value !== "") {
+    nomes.unshift(input.value);
+    input.value = "";
+    renderizarLista();
   }
-});
+}
+
+function removerUltimo() {
+  nomes.pop();
+  renderizarLista();
+}
+
+function removerPrimeiro() {
+  nomes.shift();
+  renderizarLista();
+}
+
+// inicializa
+renderizarLista();
